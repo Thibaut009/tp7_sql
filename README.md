@@ -23,7 +23,6 @@ CREATE TABLE Utilisateurs (
   u_prenom varchar(255) NOT NULL,
   u_email varchar(255) PRIMARY KEY,
   u_mdp varchar(255) NOT NULL,
-  u_role varchar(255) NOT NULL,
   u_cree_a timestamp DEFAULT current_timestamp
 );
 
@@ -76,10 +75,10 @@ INSERT INTO Acteurs (a_nom, a_prenom, a_role, a_date_naissance) VALUES
 ('Pitt', 'Brad', 'Second', '1963-12-18'),
 ('Cotillard', 'Marion', 'Principal', '1975-09-30');
 
-INSERT INTO Utilisateurs (u_nom, u_prenom, u_email, u_mdp, u_role) VALUES
-('Doe', 'John', 'john.doe@example.com', 'motdepasse123', 'utilisateur'),
-('Smith', 'Alice', 'alice.smith@example.com', 'password456', 'admin'),
-('Johnson', 'Bob', 'bob.johnson@example.com', 'securepass789', 'utilisateur');
+INSERT INTO Utilisateurs (u_nom, u_prenom, u_email, u_mdp) VALUES
+('Doe', 'John', 'john.doe@example.com', 'azerty123'),
+('Smith', 'Alice', 'alice.smith@example.com', 'password123'),
+('Johnson', 'Bob', 'bob.johnson@example.com', 'test123');
 
 INSERT INTO Films (f_titre, f_duree, f_annee_sortie) VALUES
 ('Inception', 148, 2010),
