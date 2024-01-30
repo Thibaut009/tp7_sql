@@ -10,19 +10,19 @@ CREATE TABLE Realisateurs (
 );
 
 CREATE TABLE Roles (
-  role_id serial PRIMARY KEY,
-  personnage varchar(255) NOT NULL,
-  nom_role varchar(255) NOT NULL
+  ro_id serial PRIMARY KEY,
+  ro_personnage varchar(255) NOT NULL,
+  ro_importance varchar(255) NOT NULL
 );
 
 CREATE TABLE Acteurs (
   a_id serial PRIMARY KEY,
   a_nom varchar(255) NOT NULL,
   a_prenom varchar(255) NOT NULL,
-  role_id serial,
+  a_role_id serial,
   a_date_naissance date NOT NULL,
   a_cree_a timestamp DEFAULT current_timestamp,
-  FOREIGN KEY (role_id) REFERENCES Roles(role_id) ON DELETE CASCADE
+  FOREIGN KEY (a_role_id) REFERENCES Roles(r_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Utilisateurs (
