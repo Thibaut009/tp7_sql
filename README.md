@@ -22,7 +22,7 @@ CREATE TABLE Acteurs (
   a_role_id serial,
   a_date_naissance date NOT NULL,
   a_cree_a timestamp DEFAULT current_timestamp,
-  FOREIGN KEY (a_role_id) REFERENCES Roles(r_id) ON DELETE CASCADE
+  FOREIGN KEY (a_role_id) REFERENCES Roles(ro_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Utilisateurs (
