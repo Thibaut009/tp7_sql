@@ -82,8 +82,8 @@ INSERT INTO Utilisateurs (u_nom, u_prenom, u_email, u_mdp) VALUES
 
 INSERT INTO Films (f_titre, f_duree, f_annee_sortie) VALUES
 ('Inception', 148, 2010),
-('Pulp Fiction', 154, 1994),
-('E.T. the Extra-Terrestrial', 115, 1982);
+('Pulp Fiction', 154, 1990),
+('E.T. the Extra-Terrestrial', 115, 1990);
 
 INSERT INTO Joue_dans (film_id, acteur_id) VALUES
 (1, 1), -- DiCaprio dans Inception
