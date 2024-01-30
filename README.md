@@ -56,7 +56,7 @@ CREATE TABLE Prefere_par (
   utilisateur_email varchar(255),
   film_id serial,
   acteur_id serial,
-  PRIMARY KEY (utilisateur_email, film_id, acteur_id),
+  PRIMARY KEY (utilisateur_email),
   FOREIGN KEY (utilisateur_email) REFERENCES Utilisateurs(u_email) ON DELETE CASCADE,
   FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE,
   FOREIGN KEY (acteur_id) REFERENCES Acteurs(a_id) ON DELETE CASCADE,
