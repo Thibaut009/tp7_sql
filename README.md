@@ -1,6 +1,6 @@
 # tp7_sql
 
-# Creation des Tables
+# Création des Tables
 ```bash
 CREATE TABLE Realisateurs (
   r_id serial PRIMARY KEY,
