@@ -1,4 +1,4 @@
-# tp7_sql
+# TP7_SQL
 
 # Création des Tables
 ```bash
