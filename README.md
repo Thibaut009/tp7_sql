@@ -175,4 +175,9 @@ ORDER BY a_date_naissance DESC
 LIMIT 1;
 ```
 12)	Compter le nombre de films réalisés en 1990
+```bash
+SELECT COUNT(*) AS nombre_de_films
+FROM Films
+WHERE f_annee_sortie = 1990;
+```
 13)	Faire la somme de tous les acteurs ayant joué dans un film
