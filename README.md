@@ -73,39 +73,55 @@ CREATE TABLE Prefere_par (
 # Jeux de données
 ```bash
 INSERT INTO Realisateurs (r_nom, r_prenom) VALUES
-('Nolan', 'Christopher'),
-('Tarantino', 'Quentin'),
-('Spielberg', 'Steven');
+  ('Nolan', 'Christopher'),
+  ('Tarantino', 'Quentin'),
+  ('Spielberg', 'Steven');
 
-INSERT INTO Acteurs (a_nom, a_prenom, a_role, a_date_naissance) VALUES
-('DiCaprio', 'Leonardo', 'Principal', '1974-11-11'),
-('Pitt', 'Brad', 'Second', '1963-12-18'),
-('Cotillard', 'Marion', 'Principal', '1975-09-30');
+INSERT INTO Roles (ro_personnage, ro_importance) VALUES
+  ('Neo', 'Principal'),
+  ('Mia Wallace', 'Principal'),
+  ('Indiana Jones', 'Principal'),
+  ('Trinity', 'Secondaire'),
+  ('Jules Winnfield', 'Secondaire');
+
+INSERT INTO Acteurs (a_nom, a_prenom, a_role_id, a_date_naissance) VALUES
+  ('Reeves', 'Keanu', 1, '1964-09-02'),
+  ('Thurman', 'Uma', 2, '1970-04-29'),
+  ('Ford', 'Harrison', 3, '1942-07-13'),
+  ('Moss', 'Carrie-Anne', 1, '1967-08-21'),
+  ('Jackson', 'Samuel L.', 4, '1948-12-21');
 
 INSERT INTO Utilisateurs (u_nom, u_prenom, u_email, u_mdp) VALUES
-('Doe', 'John', 'john.doe@example.com', 'azerty123'),
-('Smith', 'Alice', 'alice.smith@example.com', 'password123'),
-('Johnson', 'Bob', 'bob.johnson@example.com', 'test123');
+  ('Doe', 'John', 'john.doe@example.com', 'password123'),
+  ('Smith', 'Jane', 'jane.smith@example.com', 'securepass');
 
 INSERT INTO Films (f_titre, f_duree, f_annee_sortie) VALUES
-('Inception', 148, 2010),
-('Pulp Fiction', 154, 1990),
-('E.T. the Extra-Terrestrial', 115, 1990);
+  ('The Matrix', 136, 1999),
+  ('Pulp Fiction', 154, 1994),
+  ('Inception', 148, 2010),
+  ('Indiana Jones and the Last Crusade', 127, 1989),
+  ('Kill Bill: Volume 1', 111, 2003);
 
 INSERT INTO Joue_dans (film_id, acteur_id) VALUES
-(1, 1), -- DiCaprio dans Inception
-(2, 2), -- Pitt dans Pulp Fiction
-(3, 3); -- Cotillard dans E.T.
+  (1, 1),
+  (1, 4),
+  (2, 2),
+  (2, 5),
+  (3, 1),
+  (4, 3);
 
 INSERT INTO Realise_par (film_id, realisateur_id) VALUES
-(1, 1), -- Nolan a réalisé Inception
-(2, 2), -- Tarantino a réalisé Pulp Fiction
-(3, 3); -- Spielberg a réalisé E.T.
+  (1, 1),
+  (2, 2),
+  (3, 1),
+  (4, 3),
+  (5, 2);
 
 INSERT INTO Prefere_par (utilisateur_email, film_id, acteur_id) VALUES
-('john.doe@example.com', 1, 1), -- John Doe préfère Inception avec DiCaprio
-('alice.smith@example.com', 2, 2), -- Alice Smith préfère Pulp Fiction avec Pitt
-('bob.johnson@example.com', 3, 3); -- Bob Johnson préfère E.T. avec Cotillard
+  ('john.doe@example.com', 1, 1),
+  ('john.doe@example.com', 2, 2),
+  ('jane.smith@example.com', 3, 1),
+  ('jane.smith@example.com', 4, 3);
 ```
 
 # Tâches
