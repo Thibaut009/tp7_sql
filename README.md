@@ -181,3 +181,7 @@ FROM Films
 WHERE f_annee_sortie = 1990;
 ```
 13)	Faire la somme de tous les acteurs ayant joué dans un film
+```bash
+SELECT COUNT(DISTINCT acteur_id) AS somme_acteurs
+FROM Joue_dans;
+```
