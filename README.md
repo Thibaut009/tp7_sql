@@ -1,4 +1,115 @@
 # tp7_sql
+
+# Creation des Tables
+```bash
+CREATE TABLE Realisateurs (
+  r_id serial PRIMARY KEY,
+  r_nom varchar(255) NOT NULL,
+  r_prenom varchar(255) NOT NULL,
+  r_cree_a timestamp DEFAULT current_timestamp
+);
+
+CREATE TABLE Acteurs (
+  a_id serial PRIMARY KEY,
+  a_nom varchar(255) NOT NULL,
+  a_prenom varchar(255) NOT NULL,
+  a_role varchar(255) NOT NULL,
+  a_date_naissance date NOT NULL,
+  a_cree_a timestamp DEFAULT current_timestamp
+);
+
+CREATE TABLE Utilisateurs (
+  u_nom varchar(255) NOT NULL,
+  u_prenom varchar(255) NOT NULL,
+  u_email varchar(255) PRIMARY KEY,
+  u_mdp varchar(255) NOT NULL,
+  u_role varchar(255) NOT NULL,
+  u_cree_a timestamp DEFAULT current_timestamp
+);
+
+CREATE TABLE Films (
+  f_id serial PRIMARY KEY,
+  f_titre varchar(255) UNIQUE NOT NULL,
+  f_duree integer,
+  f_annee_sortie integer,
+  f_cree_a timestamp DEFAULT current_timestamp
+);
+
+CREATE TABLE Joue_dans (
+  film_id serial,
+  acteur_id serial,
+  PRIMARY KEY (film_id, acteur_id),
+  FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE,
+  FOREIGN KEY (acteur_id) REFERENCES Acteurs(a_id) ON DELETE CASCADE,
+  j_cree_a timestamp DEFAULT current_timestamp
+);
+
+CREATE TABLE Realise_par (
+  film_id serial,
+  realisateur_id serial,
+  PRIMARY KEY (film_id, realisateur_id),
+  FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE,
+  FOREIGN KEY (realisateur_id) REFERENCES Realisateurs(r_id) ON DELETE CASCADE,
+  r_cree_a timestamp DEFAULT current_timestamp
+);
+
+CREATE TABLE Prefere_par (
+  utilisateur_email varchar(255),
+  film_id serial,
+  acteur_id serial,
+  PRIMARY KEY (utilisateur_email, film_id, acteur_id),
+  FOREIGN KEY (utilisateur_email) REFERENCES Utilisateurs(u_email) ON DELETE CASCADE,
+  FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE,
+  FOREIGN KEY (acteur_id) REFERENCES Acteurs(a_id) ON DELETE CASCADE,
+  p_cree_a timestamp DEFAULT current_timestamp
+);
+```
+# Jeux de données
+```bash
+-- Insertion de données dans la table Realisateurs
+INSERT INTO Realisateurs (r_nom, r_prenom) VALUES
+('Nolan', 'Christopher'),
+('Tarantino', 'Quentin'),
+('Spielberg', 'Steven');
+
+-- Insertion de données dans la table Acteurs
+INSERT INTO Acteurs (a_nom, a_prenom, a_role, a_date_naissance) VALUES
+('DiCaprio', 'Leonardo', 'Principal', '1974-11-11'),
+('Pitt', 'Brad', 'Second', '1963-12-18'),
+('Cotillard', 'Marion', 'Principal', '1975-09-30');
+
+-- Insertion de données dans la table Utilisateurs
+INSERT INTO Utilisateurs (u_nom, u_prenom, u_email, u_mdp, u_role) VALUES
+('Doe', 'John', 'john.doe@example.com', 'motdepasse123', 'utilisateur'),
+('Smith', 'Alice', 'alice.smith@example.com', 'password456', 'admin'),
+('Johnson', 'Bob', 'bob.johnson@example.com', 'securepass789', 'utilisateur');
+
+-- Insertion de données dans la table Films
+INSERT INTO Films (f_titre, f_duree, f_annee_sortie) VALUES
+('Inception', 148, 2010),
+('Pulp Fiction', 154, 1994),
+('E.T. the Extra-Terrestrial', 115, 1982);
+
+-- Insertion de données dans la table Joue_dans
+INSERT INTO Joue_dans (film_id, acteur_id) VALUES
+(1, 1), -- DiCaprio dans Inception
+(2, 2), -- Pitt dans Pulp Fiction
+(3, 3); -- Cotillard dans E.T.
+
+-- Insertion de données dans la table Realise_par
+INSERT INTO Realise_par (film_id, realisateur_id) VALUES
+(1, 1), -- Nolan a réalisé Inception
+(2, 2), -- Tarantino a réalisé Pulp Fiction
+(3, 3); -- Spielberg a réalisé E.T.
+
+-- Insertion de données dans la table Prefere_par
+INSERT INTO Prefere_par (utilisateur_email, film_id, acteur_id) VALUES
+('john.doe@example.com', 1, 1), -- John Doe préfère Inception avec DiCaprio
+('alice.smith@example.com', 2, 2), -- Alice Smith préfère Pulp Fiction avec Pitt
+('bob.johnson@example.com', 3, 3); -- Bob Johnson préfère E.T. avec Cotillard
+```
+
+# Tâches
 1)	Les titres et dates de sortie des films du plus récent au plus ancien
 ```bash
 SELECT f_titre, f_annee_sortie 
