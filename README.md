@@ -1,5 +1,10 @@
 # tp7_sql
 1)	Les titres et dates de sortie des films du plus récent au plus ancien
+```bash
+SELECT f_titre, f_annee_sortie 
+FROM Films
+ORDER BY f_annee_sortie DESC;
+```
 2)	Les noms, prénoms et âges des acteurs/actrices de plus de 30 ans dans l'ordre alphabétique
 3)	La liste des acteurs/actrices principaux pour un film donné
 4)	La liste des films pour un acteur/actrice donné
