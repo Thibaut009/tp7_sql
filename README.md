@@ -46,7 +46,7 @@ CREATE TABLE Joue_dans (
 CREATE TABLE Realise_par (
   film_id serial,
   realisateur_id serial,
-  PRIMARY KEY (film_id, realisateur_id),
+  PRIMARY KEY (film_id),
   FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE,
   FOREIGN KEY (realisateur_id) REFERENCES Realisateurs(r_id) ON DELETE CASCADE,
   r_cree_a timestamp DEFAULT current_timestamp
