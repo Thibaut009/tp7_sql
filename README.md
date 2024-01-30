@@ -46,12 +46,30 @@ SET f_titre = 'DeadPool', f_duree = 120, f_annee_sortie = 2022
 WHERE f_id = 1;
 ```
 8)	Supprimer un acteur/actrice
-
+```bash
+DELETE FROM Acteurs
+WHERE a_id = 2
+```
 9)	Afficher les 3 derniers acteurs/actrices ajouté(e)s
-
+```bash
+SELECT *
+FROM Acteurs
+ORDER BY a_cree_a DESC
+LIMIT 3;
+```
 10)	Afficher le film le plus ancien
-
+```bash
+SELECT *
+FROM Films
+ORDER BY f_annee_sortie
+LIMIT 1;
+```
 11)	Afficher l’acteur le plus jeune
-
+```bash
+SELECT *
+FROM Acteurs
+ORDER BY a_date_naissance DESC
+LIMIT 1;
+```
 12)	Compter le nombre de films réalisés en 1990
 13)	Faire la somme de tous les acteurs ayant joué dans un film
