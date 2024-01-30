@@ -66,43 +66,36 @@ CREATE TABLE Prefere_par (
 ```
 # Jeux de données
 ```bash
--- Insertion de données dans la table Realisateurs
 INSERT INTO Realisateurs (r_nom, r_prenom) VALUES
 ('Nolan', 'Christopher'),
 ('Tarantino', 'Quentin'),
 ('Spielberg', 'Steven');
 
--- Insertion de données dans la table Acteurs
 INSERT INTO Acteurs (a_nom, a_prenom, a_role, a_date_naissance) VALUES
 ('DiCaprio', 'Leonardo', 'Principal', '1974-11-11'),
 ('Pitt', 'Brad', 'Second', '1963-12-18'),
 ('Cotillard', 'Marion', 'Principal', '1975-09-30');
 
--- Insertion de données dans la table Utilisateurs
 INSERT INTO Utilisateurs (u_nom, u_prenom, u_email, u_mdp, u_role) VALUES
 ('Doe', 'John', 'john.doe@example.com', 'motdepasse123', 'utilisateur'),
 ('Smith', 'Alice', 'alice.smith@example.com', 'password456', 'admin'),
 ('Johnson', 'Bob', 'bob.johnson@example.com', 'securepass789', 'utilisateur');
 
--- Insertion de données dans la table Films
 INSERT INTO Films (f_titre, f_duree, f_annee_sortie) VALUES
 ('Inception', 148, 2010),
 ('Pulp Fiction', 154, 1994),
 ('E.T. the Extra-Terrestrial', 115, 1982);
 
--- Insertion de données dans la table Joue_dans
 INSERT INTO Joue_dans (film_id, acteur_id) VALUES
 (1, 1), -- DiCaprio dans Inception
 (2, 2), -- Pitt dans Pulp Fiction
 (3, 3); -- Cotillard dans E.T.
 
--- Insertion de données dans la table Realise_par
 INSERT INTO Realise_par (film_id, realisateur_id) VALUES
 (1, 1), -- Nolan a réalisé Inception
 (2, 2), -- Tarantino a réalisé Pulp Fiction
 (3, 3); -- Spielberg a réalisé E.T.
 
--- Insertion de données dans la table Prefere_par
 INSERT INTO Prefere_par (utilisateur_email, film_id, acteur_id) VALUES
 ('john.doe@example.com', 1, 1), -- John Doe préfère Inception avec DiCaprio
 ('alice.smith@example.com', 2, 2), -- Alice Smith préfère Pulp Fiction avec Pitt
