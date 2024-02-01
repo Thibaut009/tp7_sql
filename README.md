@@ -19,7 +19,7 @@ CREATE TABLE Acteurs (
   a_id serial PRIMARY KEY,
   a_nom varchar(255) NOT NULL,
   a_prenom varchar(255) NOT NULL,
-  a_personnage(255) NOT NULL,
+  a_role(255) NOT NULL,
   a_importance(255) NOT NULL,
   a_date_naissance date NOT NULL,
   a_cree_a timestamp DEFAULT current_timestamp,
