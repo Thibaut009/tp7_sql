@@ -124,12 +124,12 @@ ORDER BY a_nom, a_prenom;
 ```
 3)	La liste des acteurs/actrices principaux pour un film donné
 ```bash
-SELECT a_nom, a_prenom
+SELECT a_nom, a_prenom, a_importance
 FROM Acteurs
 JOIN Joue_dans ON Acteurs.a_id = Joue_dans.acteur_id
 JOIN Films ON Joue_dans.film_id = Films.f_id
-WHERE Films.f_titre = 'Pulp Fiction'
-AND a_role = 'Principal'
+WHERE Films.f_titre = 'The Matrix'
+AND a_importance = 'Principale'
 ```
 4)	La liste des films pour un acteur/actrice donné
 ```bash
