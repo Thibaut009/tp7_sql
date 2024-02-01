@@ -9,12 +9,6 @@ CREATE TABLE Realisateurs (
   r_cree_a timestamp DEFAULT current_timestamp
 );
 
-CREATE TABLE Roles (
-  ro_id serial PRIMARY KEY,
-  ro_personnage varchar(255) NOT NULL,
-  ro_importance varchar(255) NOT NULL
-);
-
 CREATE TABLE Acteurs (
   a_id serial PRIMARY KEY,
   a_nom varchar(255) NOT NULL,
@@ -22,8 +16,7 @@ CREATE TABLE Acteurs (
   a_role varchar(255) NOT NULL,
   a_importance varchar(255) NOT NULL,
   a_date_naissance date NOT NULL,
-  a_cree_a timestamp DEFAULT current_timestamp,
-  FOREIGN KEY (a_role_id) REFERENCES Roles(ro_id) ON DELETE CASCADE
+  a_cree_a timestamp DEFAULT current_timestamp
 );
 
 CREATE TABLE Utilisateurs (
