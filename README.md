@@ -146,8 +146,8 @@ VALUES ('Iron Man', 120, 2008);
 ```
 6)	Ajouter un acteur/actrice
 ```bash
-INSERT INTO Acteurs (a_nom, a_prenom, a_role, a_date_naissance)
-VALUES ('Robert ', 'Downey jr', 'Principal', '1965-01-01');
+INSERT INTO Acteurs (a_nom, a_prenom, a_role, a_importance, a_date_naissance)
+VALUES ('Robert ', 'Downey jr', 'Iron Man', 'Principal', '1965-01-01');
 ```
 7)	Modifier un film
 ```bash
