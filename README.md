@@ -67,55 +67,45 @@ CREATE TABLE Prefere_par (
 # Jeux de données
 ```bash
 INSERT INTO Realisateurs (r_nom, r_prenom) VALUES
-  ('Nolan', 'Christopher'),
-  ('Tarantino', 'Quentin'),
-  ('Spielberg', 'Steven');
+('Spielberg', 'Steven'),
+('Nolan', 'Christopher'),
+('Tarantino', 'Quentin');
 
-INSERT INTO Roles (ro_personnage, ro_importance) VALUES
-  ('Neo', 'Principal'),
-  ('Mia Wallace', 'Principal'),
-  ('Indiana Jones', 'Principal'),
-  ('Trinity', 'Secondaire'),
-  ('Jules Winnfield', 'Secondaire');
+-- Insert sample data into Acteurs Table
+INSERT INTO Acteurs (a_nom, a_prenom, a_role, a_importance, a_date_naissance) VALUES
+('Reeves', 'Keanu', 'Neo', 'Principale', '1964-09-02'),
+('DiCaprio', 'Leonardo', 'Jack Dawson', 'Principale', '1974-11-11'),
+('Hamill', 'Mark', 'Darth Vader', 'secondaire', '1951-09-25');
 
-INSERT INTO Acteurs (a_nom, a_prenom, a_role_id, a_date_naissance) VALUES
-  ('Reeves', 'Keanu', 1, '1964-09-02'),
-  ('Thurman', 'Uma', 2, '1970-04-29'),
-  ('Ford', 'Harrison', 3, '1942-07-13'),
-  ('Moss', 'Carrie-Anne', 1, '1967-08-21'),
-  ('Jackson', 'Samuel L.', 4, '1948-12-21');
-
+-- Insert sample data into Utilisateurs Table
 INSERT INTO Utilisateurs (u_nom, u_prenom, u_email, u_mdp) VALUES
-  ('Doe', 'John', 'john.doe@example.com', 'password123'),
-  ('Smith', 'Jane', 'jane.smith@example.com', 'securepass');
+('Smith', 'John', 'john.smith@email.com', 'password123'),
+('Doe', 'Jane', 'jane.doe@email.com', 'secret456'),
+('White', 'Walter', 'walter.white@email.com', 'blueSky');
 
+-- Insert sample data into Films Table
 INSERT INTO Films (f_titre, f_duree, f_annee_sortie) VALUES
-  ('The Matrix', 136, 1999),
-  ('Pulp Fiction', 154, 1994),
-  ('Inception', 148, 2010),
-  ('Indiana Jones and the Last Crusade', 127, 1989),
-  ('Kill Bill: Volume 1', 111, 2003);
+('The Matrix', 136, 1999),
+('Titanic', 195, 1997),
+('Pulp Fiction', 154, 1994);
 
+-- Insert sample data into Joue_dans Table
 INSERT INTO Joue_dans (film_id, acteur_id) VALUES
-  (1, 1),
-  (1, 4),
-  (2, 2),
-  (2, 5),
-  (3, 1),
-  (4, 3);
+(1, 1),
+(2, 2),
+(3, 3);
 
+-- Insert sample data into Realise_par Table
 INSERT INTO Realise_par (film_id, realisateur_id) VALUES
-  (1, 1),
-  (2, 2),
-  (3, 1),
-  (4, 3),
-  (5, 2);
+(1, 1),
+(2, 2),
+(3, 3);
 
+-- Insert sample data into Prefere_par Table
 INSERT INTO Prefere_par (utilisateur_email, film_id, acteur_id) VALUES
-  ('john.doe@example.com', 1, 1),
-  ('john.doe@example.com', 2, 2),
-  ('jane.smith@example.com', 3, 1),
-  ('jane.smith@example.com', 4, 3);
+('john.smith@email.com', 1, 1),
+('jane.doe@email.com', 2, 2),
+('walter.white@email.com', 3, 3);
 ```
 
 # Tâches
