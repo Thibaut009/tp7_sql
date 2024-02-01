@@ -75,7 +75,7 @@ INSERT INTO Realisateurs (r_nom, r_prenom) VALUES
 INSERT INTO Acteurs (a_nom, a_prenom, a_role, a_importance, a_date_naissance) VALUES
 ('Reeves', 'Keanu', 'Neo', 'Principale', '1964-09-02'),
 ('DiCaprio', 'Leonardo', 'Jack Dawson', 'Principale', '1974-11-11'),
-('Hamill', 'Mark', 'Darth Vader', 'secondaire', '1951-09-25');
+('Hamill', 'Mark', 'Darth Vader', 'Secondaire', '1951-09-25');
 
 -- Insert sample data into Utilisateurs Table
 INSERT INTO Utilisateurs (u_nom, u_prenom, u_email, u_mdp) VALUES
