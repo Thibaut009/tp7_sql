@@ -1,6 +1,6 @@
 # TP7_SQL
 
-# Dictoinnaire de Base de Données
+# Dictoinnaire de Données
 
 ## Table `Realisateurs`
 
