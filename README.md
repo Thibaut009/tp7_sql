@@ -73,34 +73,28 @@
 ## Entités :
 
 ### Realisateur
-- Identifiants : r_id
-- Attributs : r_nom, r_prenom
+[ r_id | r_nom | r_prenom ]
 
 ### Acteur
-- Identifiants : a_id
-- Attributs : a_nom, a_prenom, a_role, a_importance, a_date_naissance
+[ a_id | a_nom | a_prenom | a_role | a_importance | a_date_naissance ]
 
 ### Utilisateur
-- Identifiants : u_email
-- Attributs : u_nom, u_prenom, u_mdp
+[ u_email | u_nom | u_prenom | u_mdp ]
 
 ### Film
-- Identifiants : f_id
-- Attributs : f_titre, f_duree, f_annee_sortie
+[ f_id | f_titre | f_duree | f_annee_sortie ]
 
 ## Associations :
 
 ### Joue_dans
-- Entités liées : Acteur, Film
-- Attributs : j_cree_a
+[Acteur] --j_cree_a--> [Film]
 
 ### Realise_par
-- Entités liées : Realisateur, Film
-- Attributs : r_cree_a
+[Realisateur] --r_cree_a--> [Film]
 
 ### Prefere_par
-- Entités liées : Utilisateur, Film, Acteur
-- Attributs : p_cree_a
+[Utilisateur] --p_cree_a--> [Film]
+[Utilisateur] --p_cree_a--> [Acteur]
 
 # Création des Tables
 ```bash
