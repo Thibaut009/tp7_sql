@@ -1,5 +1,73 @@
 # TP7_SQL
 
+# Dictoinnaire de Base de Données
+
+## Table `Realisateurs`
+
+| Colonne    | Type        | Contraintes       |
+|------------|-------------|-------------------|
+| r_id       | serial      | PRIMARY KEY       |
+| r_nom      | varchar(255)| NOT NULL          |
+| r_prenom   | varchar(255)| NOT NULL          |
+| r_cree_a   | timestamp   | DEFAULT current_timestamp |
+
+## Table `Acteurs`
+
+| Colonne         | Type        | Contraintes       |
+|-----------------|-------------|-------------------|
+| a_id            | serial      | PRIMARY KEY       |
+| a_nom           | varchar(255)| NOT NULL          |
+| a_prenom        | varchar(255)| NOT NULL          |
+| a_role          | varchar(255)| NOT NULL          |
+| a_importance    | varchar(255)| NOT NULL          |
+| a_date_naissance| date        | NOT NULL          |
+| a_cree_a        | timestamp   | DEFAULT current_timestamp |
+
+## Table `Utilisateurs`
+
+| Colonne    | Type        | Contraintes       |
+|------------|-------------|-------------------|
+| u_nom      | varchar(255)| NOT NULL          |
+| u_prenom   | varchar(255)| NOT NULL          |
+| u_email    | varchar(255)| PRIMARY KEY       |
+| u_mdp      | varchar(255)| NOT NULL          |
+| u_cree_a   | timestamp   | DEFAULT current_timestamp |
+
+## Table `Films`
+
+| Colonne        | Type        | Contraintes                |
+|----------------|-------------|----------------------------|
+| f_id           | serial      | PRIMARY KEY                |
+| f_titre        | varchar(255)| UNIQUE NOT NULL             |
+| f_duree        | integer     |                            |
+| f_annee_sortie | integer     |                            |
+| f_cree_a       | timestamp   | DEFAULT current_timestamp |
+
+## Table `Joue_dans`
+
+| Colonne     | Type  | Contraintes                       |
+|-------------|-------|-----------------------------------|
+| film_id     | serial| FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE |
+| acteur_id   | serial| FOREIGN KEY (acteur_id) REFERENCES Acteurs(a_id) ON DELETE CASCADE |
+| j_cree_a    | timestamp | DEFAULT current_timestamp |
+
+## Table `Realise_par`
+
+| Colonne         | Type  | Contraintes                       |
+|-----------------|-------|-----------------------------------|
+| film_id         | serial| PRIMARY KEY, FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE |
+| realisateur_id  | serial| FOREIGN KEY (realisateur_id) REFERENCES Realisateurs(r_id) ON DELETE CASCADE |
+| r_cree_a        | timestamp | DEFAULT current_timestamp |
+
+## Table `Prefere_par`
+
+| Colonne            | Type  | Contraintes                       |
+|--------------------|-------|-----------------------------------|
+| utilisateur_email  | varchar(255)| PRIMARY KEY, FOREIGN KEY (utilisateur_email) REFERENCES Utilisateurs(u_email) ON DELETE CASCADE |
+| film_id            | serial| FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE |
+| acteur_id          | serial| FOREIGN KEY (acteur_id) REFERENCES Acteurs(a_id) ON DELETE CASCADE |
+| p_cree_a           | timestamp | DEFAULT current_timestamp |
+
 # Création des Tables
 ```bash
 CREATE TABLE Realisateurs (
