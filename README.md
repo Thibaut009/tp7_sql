@@ -2,71 +2,42 @@
 
 # Dictoinnaire de Données
 
-## Table `Realisateurs`
+## Dictionnaire de Données
 
-| Colonne    | Type        | Contraintes       |
-|------------|-------------|-------------------|
-| r_id       | serial      | PRIMARY KEY       |
-| r_nom      | varchar(255)| NOT NULL          |
-| r_prenom   | varchar(255)| NOT NULL          |
-| r_cree_a   | timestamp   | DEFAULT current_timestamp |
+| Table        | Attribut            | Type de Donnée | Description                                           |
+|--------------|---------------------|----------------|-------------------------------------------------------|
+| Realisateurs | r_id                | SERIAL         | Identifiant unique du réalisateur                     |
+|              | r_nom               | VARCHAR(255)   | Nom du réalisateur                                    |
+|              | r_prenom            | VARCHAR(255)   | Prénom du réalisateur                                 |
+|              | r_cree_a            | TIMESTAMP      | Date de création du réalisateur                       |
+| Acteurs      | a_id                | SERIAL         | Identifiant unique de l'acteur                        |
+|              | a_nom               | VARCHAR(255)   | Nom de l'acteur                                       |
+|              | a_prenom            | VARCHAR(255)   | Prénom de l'acteur                                    |
+|              | a_role              | VARCHAR(255)   | Rôle de l'acteur                                      |
+|              | a_importance        | VARCHAR(255)   | Importance de l'acteur dans le film                   |
+|              | a_date_naissance    | DATE           | Date de naissance de l'acteur                         |
+|              | a_cree_a            | TIMESTAMP      | Date de création de l'acteur                          |
+| Utilisateurs | u_nom               | VARCHAR(255)   | Nom de l'utilisateur                                  |
+|              | u_prenom            | VARCHAR(255)   | Prénom de l'utilisateur                               |
+|              | u_email             | VARCHAR(255)   | Email de l'utilisateur                                |
+|              | u_mdp               | VARCHAR(255)   | Mot de passe de l'utilisateur                         |
+|              | u_cree_a            | TIMESTAMP      | Date de création de l'utilisateur                     |
+| Films        | f_id                | SERIAL         | Identifiant unique du film                            |
+|              | f_titre             | VARCHAR(255)   | Titre du film                                         |
+|              | f_duree             | INTEGER        | Durée du film en minutes                              |
+|              | f_annee_sortie      | INTEGER        | Année de sortie du film                               |
+|              | f_cree_a            | TIMESTAMP      | Date de création du film                              |
+| Joue_dans    | film_id             | SERIAL         | Clé étrangère vers Films                              |
+|              | acteur_id           | SERIAL         | Clé étrangère vers Acteurs                            |
+|              | j_cree_a            | TIMESTAMP      | Date de création de la relation Joue_dans             |
+| Realise_par   | film_id            | SERIAL         | Clé étrangère vers Films                              |
+|              | realisateur_id      | SERIAL         | Clé étrangère vers Realisateurs                       |
+|              | r_cree_a            | TIMESTAMP      | Date de création de la relation Realise_par           |
+| Prefere_par   | utilisateur_email  | VARCHAR(255)   | Clé étrangère vers Utilisateurs                       |
+|              | film_id             | SERIAL         | Clé étrangère vers Films                              |
+|              | acteur_id           | SERIAL         | Clé étrangère vers Acteurs                            |
+|              | p_cree_a            | TIMESTAMP      | Date de création de la relation Prefere_par           |
 
-## Table `Acteurs`
-
-| Colonne         | Type        | Contraintes       |
-|-----------------|-------------|-------------------|
-| a_id            | serial      | PRIMARY KEY       |
-| a_nom           | varchar(255)| NOT NULL          |
-| a_prenom        | varchar(255)| NOT NULL          |
-| a_role          | varchar(255)| NOT NULL          |
-| a_importance    | varchar(255)| NOT NULL          |
-| a_date_naissance| date        | NOT NULL          |
-| a_cree_a        | timestamp   | DEFAULT current_timestamp |
-
-## Table `Utilisateurs`
-
-| Colonne    | Type        | Contraintes       |
-|------------|-------------|-------------------|
-| u_nom      | varchar(255)| NOT NULL          |
-| u_prenom   | varchar(255)| NOT NULL          |
-| u_email    | varchar(255)| PRIMARY KEY       |
-| u_mdp      | varchar(255)| NOT NULL          |
-| u_cree_a   | timestamp   | DEFAULT current_timestamp |
-
-## Table `Films`
-
-| Colonne        | Type        | Contraintes                |
-|----------------|-------------|----------------------------|
-| f_id           | serial      | PRIMARY KEY                |
-| f_titre        | varchar(255)| UNIQUE NOT NULL             |
-| f_duree        | integer     |                            |
-| f_annee_sortie | integer     |                            |
-| f_cree_a       | timestamp   | DEFAULT current_timestamp |
-
-## Table `Joue_dans`
-
-| Colonne     | Type  | Contraintes                       |
-|-------------|-------|-----------------------------------|
-| film_id     | serial| FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE |
-| acteur_id   | serial| FOREIGN KEY (acteur_id) REFERENCES Acteurs(a_id) ON DELETE CASCADE |
-| j_cree_a    | timestamp | DEFAULT current_timestamp |
-
-## Table `Realise_par`
-
-| Colonne         | Type  | Contraintes                       |
-|-----------------|-------|-----------------------------------|
-| film_id         | serial| PRIMARY KEY, FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE |
-| realisateur_id  | serial| FOREIGN KEY (realisateur_id) REFERENCES Realisateurs(r_id) ON DELETE CASCADE |
-| r_cree_a        | timestamp | DEFAULT current_timestamp |
-
-## Table `Prefere_par`
-
-| Colonne            | Type  | Contraintes                       |
-|--------------------|-------|-----------------------------------|
-| utilisateur_email  | varchar(255)| PRIMARY KEY, FOREIGN KEY (utilisateur_email) REFERENCES Utilisateurs(u_email) ON DELETE CASCADE |
-| film_id            | serial| FOREIGN KEY (film_id) REFERENCES Films(f_id) ON DELETE CASCADE |
-| acteur_id          | serial| FOREIGN KEY (acteur_id) REFERENCES Acteurs(a_id) ON DELETE CASCADE |
-| p_cree_a           | timestamp | DEFAULT current_timestamp |
 
 # Création des Tables
 ```bash
