@@ -2,8 +2,6 @@
 
 # Dictoinnaire de Données
 
-## Dictionnaire de Données
-
 | Table        | Attribut            | Type de Donnée | Description                                           |
 |--------------|---------------------|----------------|-------------------------------------------------------|
 | Realisateurs | r_id                | SERIAL         | Identifiant unique du réalisateur                     |
