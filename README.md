@@ -108,37 +108,31 @@ INSERT INTO Realisateurs (r_nom, r_prenom) VALUES
 ('Nolan', 'Christopher'),
 ('Tarantino', 'Quentin');
 
--- Insert sample data into Acteurs Table
 INSERT INTO Acteurs (a_nom, a_prenom, a_role, a_importance, a_date_naissance) VALUES
 ('Reeves', 'Keanu', 'Neo', 'Principale', '1964-09-02'),
 ('DiCaprio', 'Leonardo', 'Jack Dawson', 'Principale', '1974-11-11'),
-('Hamill', 'Mark', 'Darth Vader', 'Secondaire', '1951-09-25');
+('Hamill', 'Mark', 'Darth Vader', 'Secondaire', '2003-09-25');
 
--- Insert sample data into Utilisateurs Table
 INSERT INTO Utilisateurs (u_nom, u_prenom, u_email, u_mdp) VALUES
 ('Smith', 'John', 'john.smith@email.com', 'password123'),
 ('Doe', 'Jane', 'jane.doe@email.com', 'secret456'),
 ('White', 'Walter', 'walter.white@email.com', 'blueSky');
 
--- Insert sample data into Films Table
 INSERT INTO Films (f_titre, f_duree, f_annee_sortie) VALUES
 ('The Matrix', 136, 1990),
 ('Titanic', 195, 1997),
 ('Pulp Fiction', 154, 1990);
 
--- Insert sample data into Joue_dans Table
 INSERT INTO Joue_dans (film_id, acteur_id) VALUES
 (1, 1),
 (2, 2),
 (3, 3);
 
--- Insert sample data into Realise_par Table
 INSERT INTO Realise_par (film_id, realisateur_id) VALUES
 (1, 1),
 (2, 2),
 (3, 3);
 
--- Insert sample data into Prefere_par Table
 INSERT INTO Prefere_par (utilisateur_email, film_id, acteur_id) VALUES
 ('john.smith@email.com', 1, 1),
 ('jane.doe@email.com', 2, 2),
