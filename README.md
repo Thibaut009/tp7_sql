@@ -68,6 +68,40 @@
 | acteur_id          | serial| FOREIGN KEY (acteur_id) REFERENCES Acteurs(a_id) ON DELETE CASCADE |
 | p_cree_a           | timestamp | DEFAULT current_timestamp |
 
+# Modèle Conceptuel de Données (MCD)
+
+## Entités :
+
+### Realisateur
+- Identifiants : r_id
+- Attributs : r_nom, r_prenom
+
+### Acteur
+- Identifiants : a_id
+- Attributs : a_nom, a_prenom, a_role, a_importance, a_date_naissance
+
+### Utilisateur
+- Identifiants : u_email
+- Attributs : u_nom, u_prenom, u_mdp
+
+### Film
+- Identifiants : f_id
+- Attributs : f_titre, f_duree, f_annee_sortie
+
+## Associations :
+
+### Joue_dans
+- Entités liées : Acteur, Film
+- Attributs : j_cree_a
+
+### Realise_par
+- Entités liées : Realisateur, Film
+- Attributs : r_cree_a
+
+### Prefere_par
+- Entités liées : Utilisateur, Film, Acteur
+- Attributs : p_cree_a
+
 # Création des Tables
 ```bash
 CREATE TABLE Realisateurs (
